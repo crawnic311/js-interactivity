@@ -10,9 +10,18 @@ function addMovie(event) {
     movieTitle.textContent = inputField.value;
     
     movie.appendChild(movieTitle); 
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'X';
+    deleteBtn.addEventListener('click', deleteMovie);
+    movie.appendChild(deleteBtn);
 
-    let list = document.querySelector("ul");
+    let list = document.querySelector('ul');
     list.appendChild(movie);
 }
 
+function deleteMovie(event) {
+    event.target.parentNode.remove();
+}
+
 document.querySelector('#form').addEventListener('submit', addMovie);
+
